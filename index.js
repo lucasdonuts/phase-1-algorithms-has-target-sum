@@ -1,9 +1,21 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for(let i = 0; i < array.length - 1; i++) {
+    for(let j = i + 1; j < array.length; j++) {
+      if(array[i] + array[j] == target) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  Nested loops increase time complexity exponentially. My outer loop
+  excludes the last array element so its number of steps is (n - 1).
+  My inner loop skips the first array element so its number of steps
+  is also (n - 1). With constants removed, time complexity
+  equals O(n * n) or O(n^2).
 */
 
 /* 
